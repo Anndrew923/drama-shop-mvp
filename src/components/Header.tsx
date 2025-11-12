@@ -7,8 +7,8 @@ const Header: React.FC = () => {
         <span className="location">台灣</span>
         <div className="search-container">
           <span className="scan-icon">📷</span>
-          <input type="text" placeholder="搜索" className="search-input" />
-          <button className="search-button">搜索</button>
+          <input type="text" placeholder="搜尋" className="search-input" />
+          <button className="search-button">搜尋</button>
         </div>
         <div className="user-info">
           <span className="user-avatar">👤</span>

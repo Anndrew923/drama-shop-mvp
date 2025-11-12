@@ -633,7 +633,7 @@ body {
   );
 }
 
-/* 右上角搜索按鈕 - 移除背景，只保留圖標 */
+/* 右上角搜尋按鈕 - 移除背景，只保留圖標 */
 .overlay-search-btn {
   position: absolute;
   top: 20px;
@@ -670,7 +670,7 @@ body {
   display: block;
 }
 
-/* 搜索圖標 SVG 樣式 */
+/* 搜尋圖標 SVG 樣式 */
 .search-icon svg {
   width: 24px;
   height: 24px;
@@ -973,4 +973,294 @@ body {
     padding-bottom: max(10px, calc(10px + env(safe-area-inset-bottom)));
     height: max(70px, calc(70px + env(safe-area-inset-bottom)));
   }
+}
+
+/* ==================== 劇場頁面樣式 ==================== */
+
+.theater-page {
+  min-height: calc(100vh - 70px);
+  padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom)));
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  width: 100%;
+  position: relative;
+  margin: -10px; /* 抵消 app-main-content 的 padding */
+  padding-top: 0;
+}
+
+/* 搜尋欄 */
+.theater-search-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #1a1a1a;
+  padding: 12px 16px;
+  border-bottom: 1px solid #333;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #2a2a2a;
+  border-radius: 20px;
+  padding: 8px 16px;
+  gap: 10px;
+}
+
+.search-input-container .search-icon {
+  width: 20px;
+  height: 20px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.search-input-container .search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input-container .search-input::placeholder {
+  color: #666;
+}
+
+/* 分類篩選 */
+.category-filter {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 57px; /* 搜尋欄高度 */
+  z-index: 40;
+}
+
+/* 主分類導航 */
+.main-category-nav {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 12px 16px;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.main-category-nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.main-category-item {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 0;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.main-category-item:hover {
+  color: #aaa;
+}
+
+.main-category-item.active {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.main-category-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff6b6b;
+}
+
+/* 子分類篩選 */
+.sub-category-nav {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 16px 12px;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.sub-category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-category-item {
+  background-color: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 16px;
+  color: #ccc;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.sub-category-item:hover {
+  background-color: #333;
+  border-color: #444;
+}
+
+.sub-category-item.active {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+  color: #fff;
+  font-weight: 500;
+}
+
+.sub-category-more {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sub-category-more svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 短劇網格 */
+.drama-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.drama-grid-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #888;
+  font-size: 16px;
+}
+
+/* 短劇卡片 */
+.drama-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.drama-card:active {
+  transform: scale(0.98);
+}
+
+.drama-card-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2a2a2a;
+  margin-bottom: 8px;
+}
+
+.drama-card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drama-card-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: rgba(255, 107, 107, 0.9);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.drama-card-content {
+  padding: 0 2px;
+}
+
+.drama-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 36px;
+}
+
+.drama-card-subtitle {
+  font-size: 11px;
+  color: #aaa;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drama-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 10px;
+  color: #888;
+}
+
+.drama-card-category {
+  color: #888;
+}
+
+.drama-card-views {
+  color: #666;
+}
+
+/* 響應式設計 */
+@media (max-width: 375px) {
+  .drama-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .drama-card-title {
+    font-size: 13px;
+    min-height: 32px;
+  }
+}
+
+@media (min-width: 500px) {
+  .drama-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 確保與底部導航不重疊 */
+.theater-page {
+  padding-bottom: max(80px, calc(80px + env(safe-area-inset-bottom)));
 }

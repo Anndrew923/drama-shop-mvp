@@ -16,7 +16,7 @@ export interface VideoClip {
 }
 
 // 所有模擬視頻數據池
-const ALL_VIDEO_CLIPS: VideoClip[] = [
+export const ALL_VIDEO_CLIPS: VideoClip[] = [
   {
     id: "clip1",
     videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",

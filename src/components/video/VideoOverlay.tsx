@@ -45,7 +45,7 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({
 
   return (
     <div className="video-overlay">
-      {/* 右上角搜索圖標 */}
+      {/* 右上角搜尋圖標 */}
       <button className="overlay-search-btn" onClick={onSearch}>
         <span className="search-icon">
           <svg
