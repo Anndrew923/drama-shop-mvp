@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 備份文件和臨時文件
+*.backup
+*.tmp
+.vscode/
+.idea/
