@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/theater/SearchBar';
 import CategoryFilter from '../components/theater/CategoryFilter';
 import DramaGrid from '../components/theater/DramaGrid';
-import { getAllDramas, getAllCategories, Drama } from '../services/dramaService';
+import { getAllDramas, Drama } from '../services/dramaService';
 
 const TheaterPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -13,7 +13,6 @@ const TheaterPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('找劇');
   const [selectedSubCategory, setSelectedSubCategory] = useState<string>('推薦榜');
-  const [categories] = useState<string[]>(getAllCategories());
 
   // 應用篩選
   const applyFilters = (category: string, subCategory: string) => {
